@@ -1,0 +1,31 @@
+<div class="flex h-screen justify-content-center align-items-center">
+  <p-progressSpinner
+    [style]="{ width: '50px', height: '50px' }"
+    *ngIf="isLoading$ | async; else loading"
+  ></p-progressSpinner>
+  <ng-template #loading>
+    <div>
+      <h2>Todo List</h2>
+      <div *ngIf="error$ | async as error">{{ error }}</div>
+      <app-todo-form (todoEventEmitter)="addNewTodo($event)"></app-todo-form>
+      <div
+        ngClass="max-h-30rem overflow-x-auto mt-2 border-solid border-300 border-1 pl-2"
+      >
+        <div *ngFor="let todo of todos$ | async">
+          <p>
+            <p-checkbox
+              name="todo"
+              [ngStyle]="{
+                'text-decoration': todo.completed ? 'line-through' : ''
+              }"
+              [ngModel]="todo.completed"
+              [label]="todo.text"
+              [binary]="todo.completed"
+              (onChange)="toggleStatus(todo)"
+            ></p-checkbox>
+          </p>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

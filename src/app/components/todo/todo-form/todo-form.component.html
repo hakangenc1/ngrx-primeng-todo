@@ -1,0 +1,23 @@
+<form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+  <div class="flex gap-2">
+    <span class="p-input-icon-left">
+      <i class="pi pi-pencil"></i>
+      <input
+        type="text"
+        formControlName="text"
+        pInputText
+        class="p-inputtext-sm"
+        #todoText
+        placeholder="Enter a todo"
+      />
+    </span>
+    <button
+      type="submit"
+      pButton
+      label="Add"
+      icon="pi pi-plus"
+      [disabled]="f['text'].invalid"
+      class="p-button-sm"
+    ></button>
+  </div>
+</form>
