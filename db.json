@@ -2,12 +2,12 @@
   "todos": [
     {
       "text": "Spanner",
-      "completed": true,
+      "completed": false,
       "id": 1
     },
     {
       "text": "Hammer",
-      "completed": true,
+      "completed": false,
       "id": 2
     },
     {

@@ -41,5 +41,16 @@ export const reducers = createReducer(
     ...state,
     isLoading: false,
     error: action.error,
+  })),
+
+  on(TodosAction.addTodoSuccess, (state, action) => ({
+    ...state,
+    todos: [action.todo, ...state.todos],
+  })),
+
+  on(TodosAction.addTodoFailure, (state, action) => ({
+    ...state,
+    isLoading: false,
+    error: action.error,
   }))
 );

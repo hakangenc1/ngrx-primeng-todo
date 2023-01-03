@@ -19,4 +19,8 @@ export class TodosService {
       completed: !completed,
     });
   }
+
+  addTodo(todo: TodoInterface) {
+    return this.http.post<TodoInterface>(`${this.baseURL}/todos`, todo);
+  }
 }

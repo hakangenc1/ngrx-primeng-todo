@@ -27,3 +27,18 @@ export const toggleTodoStatusFailure = createAction(
   '[Todos] Update Todos failure',
   props<{ error: string }>()
 );
+
+export const addTodo = createAction(
+  '[Todos] Add Todo',
+  props<{ todo: TodoInterface }>()
+);
+
+export const addTodoSuccess = createAction(
+  '[Todos] Add Todo success',
+  props<{ todo: TodoInterface }>()
+);
+
+export const addTodoFailure = createAction(
+  '[Todos] Add Todo failure',
+  props<{ error: string }>()
+);

@@ -37,5 +37,6 @@ export class TodoFormComponent implements OnInit {
     } = this.todoForm;
 
     this.todoEventEmitter.emit(text);
+    this.todoForm.reset();
   }
 }

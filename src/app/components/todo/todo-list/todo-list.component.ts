@@ -37,12 +37,11 @@ export class TodoListComponent implements OnInit {
     this.store.dispatch(TodosAction.toggleTodoStatus({ todo }));
   }
 
-  addNewTodo(text: string) {
+  addNewTodo(text: string): void {
     const newTodo = {
       text,
       completed: false,
     };
-    // Dispatch an action to add the todo to the Todo state
-    console.log(newTodo);
+    this.store.dispatch(TodosAction.addTodo({ todo: newTodo }));
   }
 }
